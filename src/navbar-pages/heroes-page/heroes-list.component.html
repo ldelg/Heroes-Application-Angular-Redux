@@ -7,7 +7,7 @@
         <mat-icon class="delete-icon" (click)="deleteHero(hero.name)">cancel</mat-icon>
         <button mat-button class="edit-button" (click)="editHero(hero)">Edit</button>
         <mat-card-header>
-          <mat-card-title>{{ hero.name }}</mat-card-title>
+          <mat-card-title>{{ hero.name.toUpperCase() }}</mat-card-title>
         </mat-card-header>
         <img
           class="images"
