@@ -1,0 +1,38 @@
+<div class="wrapper">
+  <heroes-filters></heroes-filters>
+  <ng-container *ngIf="heroesState$ | async as state">
+    <mat-spinner *ngIf="state.isLoading" mode="indeterminate"></mat-spinner>
+    <div *ngIf="!state.isLoading && state.data?.length" class="sub-wrapper">
+      <mat-card *ngFor="let hero of state.data" class="card">
+        <mat-icon class="delete-icon" (click)="deleteHero(hero.name)">cancel</mat-icon>
+        <button mat-button class="edit-button" (click)="editHero(hero)">Edit</button>
+        <mat-card-header>
+          <mat-card-title>{{ hero.name }}</mat-card-title>
+        </mat-card-header>
+        <img
+          class="images"
+          mat-card-image
+          [src]="hero.image"
+          alt="{{ hero.name }}"
+        />
+        <mat-card-content>
+          <p class="description">{{ hero.description }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div *ngIf="!state.isLoading && state.error" class="error">
+      <p>
+        Oops, there was an error loading the heroes. Please try again later.
+      </p>
+      <iframe src="https://giphy.com/embed/1Pfd5qmaqBvjO"></iframe>
+    </div>
+
+    <div
+      *ngIf="!state.isLoading && !state.data?.length && !state.error"
+      class="no-data"
+    >
+      There seem to be no heroes listed. Feel free to create one
+    </div>
+  </ng-container>
+</div>

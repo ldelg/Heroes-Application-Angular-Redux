@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>{{ isEditMode ? "Edit Hero" : "Create New Hero" }}</h2>
+  <div class="sub-container">
+    <div class="image-preview">
+      <img
+        [src]="
+          isEditMode
+            ? currentHero?.image
+            : uploadedImageUrl"
+        alt="Hero image" />
+      <input
+        type="file"
+        [hidden]="true"
+        #fileInput
+        (change)="onFileChanged($event)" />
+      <button mat-stroked-button (click)="fileInput.click()">
+        Upload Image
+      </button>
+    </div>
+    <form [formGroup]="heroForm" (ngSubmit)="saveHero()">
+      <div class="hero-form">
+        <div class="form-section" *ngFor="let field of FormFields.main">
+          <mat-form-field appearance="fill">
+            <mat-label>{{ field.label }}</mat-label>
+            <input
+              matInput
+              [formControlName]="field.controlName"
+              [placeholder]="field.placeholder" />
+          </mat-form-field>
+        </div>
+        <button type="submit" mat-raised-button color="primary">
+          {{ isEditMode ? "Save Changes" : "Create Hero" }}
+        </button>
+      </div>
+      <mat-form-field appearance="fill" class="d-flex description">
+        <mat-label>{{ FormFields.description.label }}</mat-label>
+        <input
+          matInput
+          [formControlName]="FormFields.description.controlName"
+          [placeholder]="FormFields.description.placeholder"
+        />
+      </mat-form-field>
+    </form>
+  </div>
+</div>

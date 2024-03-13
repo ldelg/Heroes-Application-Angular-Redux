@@ -1,0 +1,21 @@
+section {
+  padding: 20px 60px;
+  overflow-y: scroll;
+  height: 91vh;
+  margin: 0;
+  @media (min-width: 600px) {
+    height: auto;
+    overflow-y: auto;
+    padding: 20px 0 20px 80px;
+  }
+}
+
+h2 {
+    margin-bottom: 20px;
+  }
+
+form {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}

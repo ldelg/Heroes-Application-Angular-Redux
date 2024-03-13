@@ -1,0 +1,28 @@
+<div class="wrapper">
+  <section class="text-center py-5 bg-light">
+    <div class="container">
+      <h1>Welcome to My Angular Test</h1>
+      <p class="lead">A brief introduction about the website or company.</p>
+    </div>
+  </section>
+
+  <section id="features" class="py-5">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4 mb-3" *ngFor="let card of homeCards">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ card.title }}</h5>
+              <p class="card-text">{{ card.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+      <p>Footer Content Here</p>
+    </div>
+  </footer>
+</div>

@@ -1,13 +1,17 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { OnInit } from '@angular/core';
+import { HeroesFacade } from '../navbar-pages/heroes-page/heroes-facade/heroes.facade';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  providers: [HeroesFacade]
 })
-export class AppComponent {
-  title = 'Heroes-SPA';
+export class AppComponent implements OnInit {
+  constructor(private heroesFacade: HeroesFacade) {}
+
+  public ngOnInit(): void {
+    this.heroesFacade.loadHeroes();
+  }
 }

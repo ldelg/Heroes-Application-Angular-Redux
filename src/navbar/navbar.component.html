@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <img fxHide.xs src="assets/logo.png" alt="Logo" routerLink="/" />
+  <ul class="menu-container">
+    <li
+      *ngFor="let item of menuItems"
+      (click)="onNavigate(item.pathName.toLowerCase())"
+      class="d-flex flex-row align-items-center"
+    >
+      <mat-icon fxHide.gt-xs class="icons">{{ item.iconName }}</mat-icon>
+      <span fxHide.xs class="nav-link active">{{ item.buttonName }}</span>
+    </li>
+  </ul>
+</mat-toolbar>

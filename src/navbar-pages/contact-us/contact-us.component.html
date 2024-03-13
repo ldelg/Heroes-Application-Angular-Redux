@@ -1,0 +1,20 @@
+<section class="border p-4 d-flex justify-content-center mb-4">
+  <form class="text-center">
+    <h2>Contact us</h2>
+    <ng-container *ngFor="let field of contactFormFields">
+      <mat-form-field class="mb-4" *ngIf="field.type !== 'textarea'; else textArea">
+        <mat-label>{{ field.label }}</mat-label>
+        <input matInput [type]="field.type" />
+      </mat-form-field>
+      <ng-template #textArea>
+        <mat-form-field class="mb-4">
+          <mat-label>{{ field.label }}</mat-label>
+          <textarea matInput rows="4"></textarea>
+        </mat-form-field>
+      </ng-template>
+    </ng-container>
+    <mat-checkbox class="">Send me a copy</mat-checkbox>
+    <button type="button" class="btn btn-primary my-4">Send</button>
+  </form>
+</section>
+

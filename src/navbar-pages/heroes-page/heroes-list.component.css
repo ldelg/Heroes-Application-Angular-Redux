@@ -1,0 +1,151 @@
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+}
+
+.wrapper {
+  height: 91vh;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 50px 0 50px;
+}
+
+.sub-wrapper {
+  display: block;
+  position: relative;
+  margin: auto;
+  @media (min-width: 520px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    margin: 0;
+  }
+}
+
+mat-spinner,
+.error,
+.no-data {
+  margin-top: 26vh;
+  align-self: center;
+}
+
+.mat-mdc-card-header {
+  padding: 0;
+  justify-content: center;
+}
+
+mat-card-content {
+  padding: 10px;
+}
+
+.card {
+  width: 200px;
+  height: 280px;
+  margin: 10px;
+}
+
+.card:hover::after {
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.card:hover .delete-icon {
+  display: block;
+}
+
+.delete-icon {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+  display: none;
+  color: #3f51b5;
+  font-size: 26px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.delete-icon:hover {
+  color: red;
+  animation: shake 0.6s ease-in-out both;
+  font-size: 28px;
+  right: -12px;
+}
+
+.card:hover .edit-button {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.edit-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 10;
+  pointer-events: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #3f51b5;
+  border: 1px solid white;
+  transition: .3s;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.edit-button::after {
+  position: absolute;
+  transition: .3s;
+  content: '';
+  width: 0;
+  left: -10%;
+  bottom: 0;
+  height: 100%;
+  background: #f7f7f7;
+  z-index: -1;
+  border-radius: 5px;
+}
+
+.edit-button:hover {
+  color: #3f51b5;
+}
+
+.edit-button:hover::after {
+  left: -1%;
+  width: 105%;
+  border-radius: 5px;
+}
+
+.images {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.description {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: small;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+iframe {
+  width: 50%;
+}

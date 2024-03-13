@@ -1,0 +1,24 @@
+.wrapper {
+  height: 100vh;
+  overflow-y: scroll;
+  z-index: 1;
+  position: absolute;
+  width: 100vw;
+  @media (min-width: 600px) {
+    position: relative;
+    height: unset;
+  }
+}
+
+footer {
+  margin-top: 0;
+  height: 150px;
+
+  @media (min-width: 600px) {
+    height: unset;
+  }
+
+  @media (min-width: 768px) {
+    margin-top: 70px;
+  }
+}

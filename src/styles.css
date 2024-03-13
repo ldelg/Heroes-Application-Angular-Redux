@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "@fortawesome/fontawesome-free/css/all.min.css";
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.succesfull {
+  .mdc-snackbar__surface {
+    background-color: rgb(47, 225, 112) !important;
+    color: white !important;
+  }
+}
+
+.deleted {
+  .mdc-snackbar__surface {
+    background-color: rgb(255, 105, 105) !important;
+    color: white !important;
+  }
+}
+
+.edited {
+  .mdc-snackbar__surface {
+    background-color: #3f51b5 !important;
+    color: white !important;
+  }
+}
