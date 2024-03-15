@@ -1,1 +1,0 @@
-{"ast":null,"code":"export {};","map":{"version":3,"names":[],"sources":["C:\\Users\\me\\Desktop\\Heroes-SPA\\src\\app\\app.component.spec.ts"],"sourcesContent":["import { TestBed } from '@angular/core/testing';\r\nimport { AppComponent } from './app.component';\r\n"],"mappings":"","ignoreList":[]},"metadata":{},"sourceType":"module","externalDependencies":[]}
