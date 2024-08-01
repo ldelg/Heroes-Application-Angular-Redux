@@ -2,8 +2,8 @@
   <heroes-filters></heroes-filters>
   <ng-container *ngIf="heroesState$ | async as state">
     <mat-spinner *ngIf="state.isLoading" mode="indeterminate"></mat-spinner>
-    <div *ngIf="!state.isLoading && state.data?.length" class="sub-wrapper">
-      <mat-card *ngFor="let hero of state.data" class="card">
+    <div *ngIf="!state.isLoading && state.filteredData?.length" class="sub-wrapper">
+      <mat-card *ngFor="let hero of state.filteredData" class="card">
         <mat-icon class="delete-icon" (click)="deleteHero(hero.name)">cancel</mat-icon>
         <button mat-button class="edit-button" (click)="editHero(hero)">Edit</button>
         <mat-card-header>

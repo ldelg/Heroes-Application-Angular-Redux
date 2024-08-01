@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HeroesFacade } from '../heroes-facade/heroes.facade';
+import { HeroesFacade } from '../heroes-logic/heroes.facade';
 
 @Component({
   selector: 'heroes-filters',

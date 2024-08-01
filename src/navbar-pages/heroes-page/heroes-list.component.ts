@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Hero } from '../../models/hero.model';
-import { HeroesFacade } from './heroes-facade/heroes.facade';
-import { State } from '../../models/state-management.model';
-import { handleState } from '../../utils/state-management.util';
+import { HeroesFacade } from './heroes-logic/heroes.facade';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialog } from '../../modals/confirmation.modal';
 import { Router } from '@angular/router';
+import { HeroState } from './heroes-logic/hero.state';
+import { HeroStateService } from './heroes-service/heroes.service';
 
 @Component({
   selector: 'heroes-list',
@@ -14,13 +14,11 @@ import { Router } from '@angular/router';
   styleUrl: './heroes-list.component.css',
 })
 export class HeroesListComponent {
-  public heroesState$: Observable<State<Hero[]>> = handleState(
-    this.heroesFacade.getHeroes$(),
-    500
-  );
+  public heroesState$: Observable<HeroState> = this.heroesFacade.getHeroes$()
 
   constructor(
     private heroesFacade: HeroesFacade,
+    private heroesStateService: HeroStateService,
     private dialog: MatDialog,
     private router: Router
   ) {}
@@ -39,7 +37,7 @@ export class HeroesListComponent {
   }
 
   public editHero(hero: Hero): void {
-    this.heroesFacade.getSelectedHero(hero.name);
+    this.heroesStateService.hero = hero;
     this.router.navigate(['/hero', hero.name]);
   }
 }

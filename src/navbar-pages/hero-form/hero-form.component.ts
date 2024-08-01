@@ -1,46 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Hero } from '../../models/hero.model';
-import { HeroesFacade } from '../heroes-page/heroes-facade/heroes.facade';
 import { FormFields } from '../../constants/hero-form.constant';
 import { FormFieldsStructure } from '../../models/hero-form.model';
+import { HeroStructure } from '../../constants/hero-state.constat';
+import { HeroesFacade } from '../heroes-page/heroes-logic/heroes.facade';
+import { HeroStateService } from '../heroes-page/heroes-service/heroes.service';
 
 @Component({
   selector: 'hero-form',
   templateUrl: './hero-form.component.html',
   styleUrls: ['./hero-form.component.css'],
 })
-export class HeroFormComponent implements OnInit {
+export class HeroFormComponent implements OnInit, OnDestroy {
   public heroForm!: FormGroup;
   public isEditMode: boolean = false;
   public uploadedImageUrl: string =
     'https://cliparts.co/cliparts/Aib/raq/AibraqG8T.jpg';
   public FormFields: FormFieldsStructure = FormFields;
-  public currentHero: Hero = {
-    name: '',
-    power: '',
-    universe: '',
-    image: '',
-    description: '',
-  };
+  public currentHero: Hero = HeroStructure;
 
   constructor(
     private fb: FormBuilder,
-    private route: ActivatedRoute,
     private router: Router,
-    private heroesFacade: HeroesFacade
+    private heroesFacade: HeroesFacade,
+    private heroStateService: HeroStateService,
   ) {}
 
   public ngOnInit(): void {
-    const heroName = this.route.snapshot.paramMap.get('name');
-    if (heroName) {
-      this.isEditMode = true;
-      this.currentHero = this.heroesFacade.getSelectedHero(heroName);
+    this.isEditMode = !!this.heroStateService.hero.name;
+    if (this.isEditMode) {
+      this.currentHero = this.heroStateService.hero;
       this.initializeForm(this.currentHero);
     } else {
       this.initializeForm();
     }
+  }
+
+  public ngOnDestroy(): void {
+    this.heroStateService.clearHero(); 
   }
 
   private initializeForm(hero?: Hero): void {

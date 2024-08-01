@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { HeroesFacade } from '../navbar-pages/heroes-page/heroes-facade/heroes.facade';
+import { HeroesFacade } from '../navbar-pages/heroes-page/heroes-logic/heroes.facade';
 
 @Component({
   selector: 'app-root',
