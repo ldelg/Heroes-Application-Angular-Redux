@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HeroFormModule } from '../components/navbar-pages/hero-form/hero-form.module';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   {
     path: 'home',
     loadChildren: () =>
