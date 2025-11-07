@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { MENU_ITEMS } from '../constants/menu-item.constant';
-import { MenuItem } from '../models/menu-item.model';
+import { MENU_ITEMS } from '../../constants/menu-item.constant';
+import { MenuItem } from '../../models/menu-item.model';
 import { Router } from '@angular/router';
 
 @Component({

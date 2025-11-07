@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
-import { ContactUsForm } from "../../models/contact-us.model";
-import { ContactFormFields } from "../../constants/contact-us.constant";
+import { ContactUsForm } from "../../../models/contact-us.model";
+import { ContactFormFields } from "../../../constants/contact-us.constant";
 
 @Component({
     selector: 'contact-us',

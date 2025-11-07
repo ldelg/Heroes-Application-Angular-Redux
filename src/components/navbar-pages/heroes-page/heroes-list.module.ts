@@ -7,7 +7,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { HeroesFiltersModule } from './heroes-filters/heroes-filters.module';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ConfirmationDialog } from '../../modals/confirmation.modal';
+import { ConfirmationDialog } from '../../../modals/confirmation.modal';
 
 const routes: Routes = [{ path: '', component: HeroesListComponent }];
 

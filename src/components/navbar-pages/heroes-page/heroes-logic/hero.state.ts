@@ -1,11 +1,10 @@
-import { Hero } from "../../../models/hero.model";
+import { Hero } from "../../../../models/hero.model";
 
 export interface HeroState {
   isLoading: boolean;
   data: Hero[];
   filteredData: Hero[];
   error: any;
-  selectedHero?: Hero;
 }
 
 export const initialState: HeroState = {
@@ -13,5 +12,4 @@ export const initialState: HeroState = {
   data: [],
   filteredData: [],
   error: null,
-  selectedHero: undefined,
 };

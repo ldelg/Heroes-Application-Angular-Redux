@@ -1,12 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Hero } from '../../models/hero.model';
-import { FormFields } from '../../constants/hero-form.constant';
-import { FormFieldsStructure } from '../../models/hero-form.model';
-import { HeroStructure } from '../../constants/hero-state.constat';
+import { Hero } from '../../../models/hero.model';
+import { FormFields } from '../../../constants/hero-form.constant';
+import { FormFieldsStructure } from '../../../models/hero-form.model';
+import { HeroStructure } from '../../../constants/hero-state.constat';
 import { HeroesFacade } from '../heroes-page/heroes-logic/heroes.facade';
-import { HeroStateService } from '../heroes-page/heroes-service/heroes.service';
+import { HeroStateService } from '../heroes-page/heroes-logic/heroes-service/heroes.service';
 
 @Component({
   selector: 'hero-form',

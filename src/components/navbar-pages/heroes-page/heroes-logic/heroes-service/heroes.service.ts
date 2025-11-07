@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Hero } from '../../../models/hero.model';
-import { HeroStructure } from '../../../constants/hero-state.constat';
+import { Hero } from '../../../../../models/hero.model';
+import { HeroStructure } from '../../../../../constants/hero-state.constat';
 
 @Injectable({
   providedIn: 'root'

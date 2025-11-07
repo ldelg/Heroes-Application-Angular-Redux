@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Hero } from '../../../models/hero.model';
-import { NotificationService } from '../../../services/notification.service';
+import { Hero } from '../../../../models/hero.model';
+import { NotificationService } from '../../../../services/notification.service';
 import { Store, select } from '@ngrx/store';
 import { HeroState } from './hero.state';
 import * as HeroActions from './heroes.actions';
@@ -48,9 +48,5 @@ export class HeroesFacade {
       'Your Hero has been successfully edited!',
       ['edited']
     );
-  }
-
-  public getSelectedHero(heroName: string) {
-    this.store.dispatch(HeroActions.setSelectedHero({ heroName }));
   }
 }

@@ -35,9 +35,4 @@ export const heroReducer = createReducer(
         ...state,
         filteredData: state.data.filter(hero => hero.name.toLowerCase().includes(searchTerm.toLowerCase()))
       })),
-
-      on(HeroActions.setSelectedHero, (state, { heroName }) => ({
-        ...state,
-        selectedHero: state.data.find(hero => hero.name === heroName) 
-      })),
 );
